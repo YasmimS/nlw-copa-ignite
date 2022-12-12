@@ -2,6 +2,7 @@ import { createContext, ReactNode, useState, useEffect } from 'react';
 import * as Google from 'expo-auth-session/providers/google';
 import * as AuthSession from 'expo-auth-session';
 import * as WebBrowser from 'expo-web-browser';
+import { api } from '../services/api'
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -29,7 +30,7 @@ export function AuthContextProvider({ children }: AuthProviderProps){
     const [isUserLoading, setIsUserLoading] = useState(false);
 
     const [request, response, promptAsync] = Google.useAuthRequest({
-        clientId: '899805282975-7a3uqh493blsdaia760rfaqq4c0vn3pa.apps.googleusercontent.com',
+        clientId: process.env.CLIENT_ID,
         redirectUri: AuthSession.makeRedirectUri({ useProxy: true}),
         scopes: ['profile', 'email']
     });
@@ -37,7 +38,6 @@ export function AuthContextProvider({ children }: AuthProviderProps){
     //console.log(AuthSession.makeRedirectUri({ useProxy: true}));
 
     async function signIn(){
-        //console.log('Vamos logar!');
 
         try {
             setIsUserLoading(true);
@@ -50,8 +50,24 @@ export function AuthContextProvider({ children }: AuthProviderProps){
         }
     }
 
-    async function signInWithGoogle(access_token: string) {
-        console.log("TOKEN DE AUTENTICAÇÃO ===>", access_token);
+    async function signInWithGoogle(accessToken: string) {
+        console.log('ACCESS TOKEN DE AUTH =>', accessToken)
+        try {
+            setIsUserLoading(true);
+            const tokenResponse = await api.post('/users', { accessToken });
+            api.defaults.headers.common['Authorization'] = `Bearer ${tokenResponse.data.token}`;
+            console.log('TOKEN =>', tokenResponse.data);
+
+            const userInfoResponse = await api.get('/me');
+            console.log(userInfoResponse.data);
+            setUser(userInfoResponse.data.user);
+
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }  finally {
+            setIsUserLoading(false);
+        }
     }
 
     useEffect(() => {
