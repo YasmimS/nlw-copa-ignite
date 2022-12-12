@@ -8,9 +8,9 @@ async function main(){
         data: {
             name: 'Yasmim Sancha de Amorim',
             email: 'yasmim.hpforever@gmail.com',
-            avatarUrl: 'https://github.com/YasmimS.png'
+            avatarUrl: 'https://github.com/YasmimS.png',
         }
-    })
+    });
 
     const pool = await prisma.pool.create({
         data: {
@@ -20,11 +20,11 @@ async function main(){
 
             participants: {
                 create: {
-                    userId: user.id
+                    userId: user.id,
                 }
             }
         }
-    })
+    });
 
     await prisma.game.create ({
         data: {
