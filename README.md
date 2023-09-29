@@ -25,9 +25,9 @@ OBS:. Se faz preciso gerar um GOOGLE_ID_CLIENT através da sua API de Autentica�
 Em todos os projetos, ao acessar a pasta, é preciso baixar os pacotes com o gerenciador de sua preferencia.
 Acesse a documentação de cada projeto:
 
-:wave: ● [Backend](https://github.com/YasmimS/nlw-copa-ignite/blob/main/server/README.md) <br>
-:wave: ● [Web](https://github.com/YasmimS/nlw-copa-ignite/blob/main/web/README.md) <br>
-:wave: ● [Mobile](https://github.com/YasmimS/nlw-copa-ignite/blob/main/mobile/README.md) <br>
+:wave: ● [Backend](https://github.com/YasmimS/nlw-copa-ignite/blob/master/server/README.md) <br>
+:wave: ● [Web](https://github.com/YasmimS/nlw-copa-ignite/blob/master/web/README.md) <br>
+:wave: ● [Mobile](https://github.com/YasmimS/nlw-copa-ignite/blob/master/mobile/README.md) <br>
 
 ## 🛠 Principais Tecnologias
 
