@@ -18,6 +18,8 @@ O NLW (Next Level Week) é um evento online de programação na prática da esco
 
 OBS:. Se faz preciso gerar um GOOGLE_ID_CLIENT através da sua API de Autenticação OAuth. Ir em Google Cloud >> APIs e Serviços >> Credenciais
 
+![NLW_COPA_APIAUTH_GOOGLE](https://github.com/YasmimS/nlw-copa-ignite/assets/57332514/20e5fec7-5f57-41e4-b89b-f05aca605a00)
+
 🚀 Como Executar
 
 Em todos os projetos, ao acessar a pasta, é preciso baixar os pacotes com o gerenciador de sua preferencia.
